@@ -1,0 +1,421 @@
+/* ========main========= */
+/* Hero */
+.hero {
+  background: url(../images/pexels-thorsten-technoman-109353-338504.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 100px 20px 80px;
+  height: 60vh;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.hero p {
+  font-size: 1.3em;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+/* services */
+.services {
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* Grid cho các thẻ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Thẻ dịch vụ */
+.service-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Wrapper hình ảnh */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .card-image {
+  transform: scale(1.1);
+}
+
+/* Nội dung thẻ */
+.card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+/* Footer thẻ */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Giá tiền */
+.price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: #deb666;
+  line-height: 1;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.price-unit {
+  font-size: 13px;
+  color: #999;
+  font-weight: 500;
+}
+
+/* Nút đặt ngay */
+.btn-view {
+  padding: 14px 32px;
+  background: #deb666;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(26, 54, 93, 0.3);
+}
+
+.btn-view:hover {
+  background: #b69854;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(26, 54, 93, 0.4);
+}
+
+/* Trạng thái rỗng */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 24px;
+  border: 2px dashed rgba(222, 182, 102, 0.3);
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: #777;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .card-image-wrapper {
+    height: 250px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 22px;
+  }
+
+  .card-description {
+    font-size: 14px;
+    -webkit-line-clamp: 2;
+  }
+
+  .price-value {
+    font-size: 28px;
+  }
+
+  .btn-book {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-image-wrapper {
+    height: 240px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .price-section {
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn-book {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-image-wrapper {
+    height: 220px;
+  }
+
+  .favorite-btn {
+    width: 40px;
+    height: 40px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .favorite-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .card-body {
+    padding: 18px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .price-value {
+    font-size: 26px;
+  }
+
+  .btn-book {
+    padding: 11px 24px;
+    font-size: 14px;
+  }
+}
+/* Features */
+.features {
+  display: flex;
+  align-items: center;
+  padding: 50px 10%;
+  background: linear-gradient(135deg, #f5f0e0 0%, #fffcf0 100%);
+}
+
+.features-content {
+  flex: 1;
+  padding-right: 20px;
+}
+.features-content h2 {
+  margin-bottom: 20px;
+}
+
+.features-image {
+  flex: 1;
+  height: 300px;
+  background-image: url(../images/1efb3b99f49a011c1dac1678ca80aba5.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+/* Album */
+.album {
+  padding: 50px 10%;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+.album-item {
+  height: 200px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+
+.packages {
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #f5f0e0 0%, #fffcf0 100%);
+  text-align: center;
+}
+.packages h2 {
+  margin-bottom: 50px;
+}
+
+.package-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.package-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.package-item:hover {
+  transform: translateY(-8px);
+}
+
+.package-img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.pkg1 {
+  background-image: url(../images/ad31d19fbca3b5f947ba2b7dadffe5f5.jpg);
+}
+.pkg2 {
+  background-image: url(../images/afe571421a3a4f39ef1b251c3a13287c.jpg);
+}
+.pkg3 {
+  background-image: url(../images/58170141f6292ba3ee05c370664cf6cc.jpg);
+}
+
+.package-content {
+  padding: 20px;
+  text-align: left;
+}
+.package-content h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #deb666;
+}
+.package-content p {
+  color: #444;
+  margin-bottom: 15px;
+}
+.package-content button {
+  background: #deb666;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.package-content button:hover {
+  background: #b69854;
+}
+
+.album1 {
+  background-image: url(../images/e3e157f2b32666e98d5845f1c275dc05.jpg);
+}
+.album2 {
+  background-image: url(../images/fb1ce2a23f18fedf461b9261183caa5e.jpg);
+}
+.album3 {
+  background-image: url(../images/352bdafbef71199cd04c13d9d79599f1.jpg);
+}
+.album4 {
+  background-image: url(../images/65d36fdab4f0de5b9f3e0da937e5c398.jpg);
+}

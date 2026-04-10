@@ -1,0 +1,306 @@
+/*======== main ==========*/
+.hero-section {
+  position: relative;
+  height: 70vh;
+  background: url("../images/roomHeroBg.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+}
+
+.hero-btn {
+  background-color: #deb666;
+  border: none;
+  color: #fff;
+  padding: 14px 40px;
+  font-size: 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-btn:hover {
+  background-color: #b69854;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* room */
+.rooms-header {
+  padding: 20px 0;
+  text-align: center;
+  background-color: #fff;
+}
+.rooms-header p {
+  width: 80%;
+  margin: 10px auto;
+}
+/* container */
+.rooms-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+}
+
+.filter-div {
+  width: 23%;
+  position: sticky;
+  top: 0;
+}
+
+/* CSS cho khung lọc */
+.filter-panel {
+  width: 100%;
+  margin-right: 2%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fffcf0;
+  border: 1px solid #deb666;
+  font-family: Arial, sans-serif;
+}
+
+.filter-panel h3,
+.filter-panel h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.search-box {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sort-dropdown {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sort-dropdown label {
+  width: 30%;
+  font-weight: 600;
+  color: #666;
+}
+
+.sort-dropdown select {
+  width: 70%;
+  padding: 10px 20px;
+  border: 2px solid #e0d5b7;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  background: white;
+}
+.catalog span {
+  font-style: 16px;
+  font-weight: bold; /* chữ đậm cho tiêu đề */
+  color: #666;
+}
+.catalog fieldset {
+  border-radius: 8px;
+  border: 1px solid #deb666;
+  padding: 10px;
+  margin: 10px 0;
+}
+/* room list */
+.rooms-list-div {
+  display: flex;
+  background-color: #fffef8;
+  height: 80vh;
+  width: 73%;
+  padding-bottom: 50px;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #deb666;
+  overflow-y: auto;
+}
+/* custom scrollbar */
+/* width */
+.rooms-list-div::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.rooms-list-div::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.rooms-list-div::-webkit-scrollbar-thumb {
+  background: #deb666;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.rooms-list-div::-webkit-scrollbar-thumb:hover {
+  background: #b69854;
+}
+.rooms-list-header {
+  width: 100%;
+  text-align: center;
+  background-color: #fffcf0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border-bottom: 1px solid #deb666;
+}
+.rooms-list-header h2 {
+  margin: 20px 0;
+  font-size: 2.5rem;
+  color: #b69854;
+}
+
+.rooms-main {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 90%;
+  margin: 18px 0;
+  /* border: 0.1px solid rgba(0, 0, 0, 0.1); */
+  border: 1px solid #deb666;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.picture {
+  height: 200px;
+  overflow: hidden;
+}
+.card .row .picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.card:hover .row .picture img {
+  transform: scale(1.2);
+}
+.information {
+  border-right: 0.1px solid #deb666;
+}
+.information .card-body {
+  margin: 10px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #b69854;
+}
+.money {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.money h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  color: #deb666;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 60px;
+  background: #fffcf0;
+  flex-wrap: wrap;
+}
+.features-text {
+  flex: 1;
+  min-width: 280px;
+}
+.features-text h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.features-text ul {
+  list-style: none;
+}
+.features-text li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+.features-text li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #deb666;
+}
+
+.features-img {
+  flex: 1;
+  text-align: right;
+  min-height: 300px;
+  background: url(/my-web-hotel/client/assets/images/bghome-home.jpg)
+    center/cover no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    text-align: center;
+  }
+  .features-img {
+    margin-top: 30px;
+    text-align: center;
+    height: 200px;
+  }
+}

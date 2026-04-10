@@ -1,0 +1,338 @@
+/* =====main===== */
+/* Hero */
+.hero {
+  height: 60vh;
+  background: url(/my-web-hotel/client/assets/images/pexels-nextvoyage-3051551.jpg)
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 20px;
+}
+
+.services {
+  padding: 40px;
+  text-align: center;
+}
+
+.services h2 {
+  margin-bottom: 15px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  position: relative; /* để overlay phủ lên */
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  padding: 60px 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* overlay đen trong suốt */
+  z-index: 1;
+  transition: background 0.3s ease;
+  border-radius: 12px;
+}
+
+.service-card h3 {
+  position: relative;
+  z-index: 2; /* để chữ nằm trên overlay */
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.service-card:hover::before {
+  background: rgba(0, 0, 0, 0.6); /* tối hơn khi hover */
+}
+
+/* Ảnh riêng cho từng dịch vụ */
+.spa {
+  background-image: url(/my-web-hotel/client/assets/images/person-enjoying-scalp-massage-spa_23-2151454839.jpg);
+}
+.entertain {
+  background-image: url(/my-web-hotel/client/assets/images/b6d594f4540148c2b5f7bd9052d7ed0a.jpg);
+}
+.restaurant {
+  background-image: url(/my-web-hotel/client/assets/images/d7c0e93abc7f90e86446a1af78c48339.jpg);
+}
+.event {
+  background-image: url(/my-web-hotel/client/assets/images/4602c8fe1e0a9fcaec0df10b4d5cec46.jpg);
+}
+
+/* About */
+.about {
+  padding: 80px 60px;
+  text-align: center;
+  background: #f7f7f7;
+  margin-bottom: 20px;
+}
+.about h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Danh sách dịch vụ */
+.services-list-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+}
+
+.filter-div {
+  width: 23%;
+  position: sticky;
+  top: 0;
+}
+
+/* CSS cho khung lọc */
+.filter-panel {
+  width: 100%;
+  margin-right: 2%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fffcf0;
+  border: 1px solid #deb666;
+  font-family: Arial, sans-serif;
+}
+
+.filter-panel h3,
+.filter-panel h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.search-box {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sort-dropdown {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sort-dropdown label {
+  width: 30%;
+  font-weight: 600;
+  color: #666;
+}
+
+.sort-dropdown select {
+  width: 70%;
+  padding: 10px 20px;
+  border: 2px solid #e0d5b7;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  background: white;
+}
+
+.catalog span {
+  font-style: 16px;
+  font-weight: bold; /* chữ đậm cho tiêu đề */
+  color: #666;
+}
+.catalog fieldset {
+  border-radius: 8px;
+  border: 1px solid #deb666;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* room list */
+.services-list-div {
+  display: flex;
+  background-color: #fffef8;
+  height: 80vh;
+  width: 73%;
+  padding-bottom: 50px;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #deb666;
+  overflow-y: auto;
+}
+/* custom scrollbar */
+/* width */
+.services-list-div::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.services-list-div::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.services-list-div::-webkit-scrollbar-thumb {
+  background: #deb666;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.services-list-div::-webkit-scrollbar-thumb:hover {
+  background: #b69854;
+}
+.services-list-header {
+  width: 100%;
+  text-align: center;
+  background-color: #fffcf0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border-bottom: 1px solid #deb666;
+}
+.services-list-header h2 {
+  margin: 20px 0;
+  font-size: 2.5rem;
+  color: #b69854;
+}
+
+.services-main {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 90%;
+  margin: 18px 0;
+  border: 1px solid #deb666;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.picture {
+  height: 200px;
+  overflow: hidden;
+}
+.card .row .picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.card:hover .row .picture img {
+  transform: scale(1.2);
+}
+.information {
+  border-right: 0.1px solid #deb666;
+}
+.information .card-body {
+  margin: 10px;
+}
+.card-title {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #b69854;
+}
+.money {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.money h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  color: #deb666;
+}
+
+/* Features */
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 60px;
+  background: #fffcf0;
+  flex-wrap: wrap;
+}
+.features-text {
+  flex: 1;
+  min-width: 280px;
+}
+.features-text h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.features-text ul {
+  list-style: none;
+}
+.features-text li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+.features-text li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #deb666;
+}
+
+.features-img {
+  flex: 1;
+  text-align: right;
+  min-height: 300px;
+  background: url(/my-web-hotel/client/assets/images/Sunset\ View\ from\ Resort\ &\ Ombra\ -\ 16x9.jpg)
+    center/cover no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    text-align: center;
+  }
+  .features-img {
+    margin-top: 30px;
+    text-align: center;
+    height: 200px;
+  }
+}

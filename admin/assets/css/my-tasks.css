@@ -1,0 +1,122 @@
+.main-content {
+  margin-left: 0;
+  padding: 30px;
+  background: #f8f9fa;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.tasks-header {
+  background: #fffcf0;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 20px rgba(222, 182, 102, 0.3);
+}
+
+.stats-card {
+  background: rgba(222, 182, 102, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.stats-card:hover {
+  background: rgba(222, 182, 102, 0.3);
+  transform: translateY(-5px);
+}
+
+.stats-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+.stats-label {
+  color: #212529;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.task-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.task-card:hover {
+  box-shadow: 0 8px 25px rgba(222, 182, 102, 0.3);
+  transform: translateY(-5px);
+}
+
+.task-card-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 2px solid #dee2e6;
+  padding: 1.25rem;
+}
+
+.priority-urgent {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+.priority-high {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+}
+
+.priority-medium {
+  background: linear-gradient(135deg, #17a2b8 0%, #117a8b 100%);
+}
+
+.priority-low {
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+}
+
+.progress-custom {
+  height: 12px;
+  border-radius: 50px;
+  background: #e9ecef;
+}
+
+.progress-bar-gold {
+  background: #deb666;
+  border-radius: 50px;
+}
+
+.btn-gold {
+  background: #deb666;
+  color: white;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-gold:hover {
+  background: #c9a555;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(222, 182, 102, 0.4);
+}
+
+.task-note {
+  background: linear-gradient(135deg, #fff9f0 0%, #fef5e7 100%);
+  border-left: 4px solid #deb666;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.filter-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-select,
+.btn {
+  height: 44px;
+}

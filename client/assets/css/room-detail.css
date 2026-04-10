@@ -1,0 +1,506 @@
+:root {
+  --primary-gold: #deb666;
+  --primary-gold-dark: #b69854;
+  --bg-cream: #fffcf0;
+  --text-dark: #333;
+  --border-color: #ddd;
+}
+.header-title {
+  background-color: #eee;
+  text-align: center;
+  padding: 30px;
+}
+.header-title h1 {
+  font-size: 2.5rem;
+  color: black;
+}
+.room-info {
+  width: 70%;
+}
+.image-section {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.main-image-slider {
+  width: 100%;
+  height: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #333;
+  z-index: 9;
+  transition: all 0.3s;
+}
+
+.slider-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn-prev {
+  left: 20px;
+}
+
+.slider-btn-next {
+  right: 20px;
+}
+
+.thumbnail-gallery {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 5px 0;
+}
+
+.thumbnail-gallery::-webkit-scrollbar {
+  height: 6px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-thumb {
+  background: #deb666;
+  border-radius: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 8px;
+  min-width: 150px;
+  height: 100px;
+  border: 3px solid transparent;
+  flex-shrink: 0;
+}
+
+.gallery-item.active {
+  border-color: #deb666;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.view-all-photos {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.view-all-photos:hover {
+  background: #deb666;
+  color: white;
+}
+
+.detail-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.main-content {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.room-meta {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 1.5rem;
+}
+
+.room-description {
+  margin-bottom: 40px;
+}
+
+.room-description h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.room-description p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.amenities-section {
+  margin-bottom: 40px;
+}
+
+.amenities-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.amenity-icon {
+  font-size: 1.8rem;
+}
+
+.booking-card {
+  position: sticky;
+  width: 30%;
+  top: 100px;
+  background: white;
+  border: 1px solid #deb666;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.price-section {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.price {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.4rem;
+  color: #deb666;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.price span {
+  font-size: 1.5rem;
+  color: #999;
+  font-weight: normal;
+}
+
+.original-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.discount-badge {
+  display: inline-block;
+  background: #ff4757;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 1.05rem;
+  margin-top: 5px;
+}
+
+.booking-form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+
+.guests-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.check-room-btn {
+  width: 100%;
+  background: #deb666;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 15px;
+}
+
+.check-room-btn:hover {
+  background: #d4a84e;
+  transform: translateY(-2px);
+}
+
+.suggestions-section {
+  margin-top: 80px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+  text-align: center;
+}
+
+.suggestions {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 80px;
+}
+
+.suggestion-card {
+  width: 30%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.suggestion-image {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.suggestion-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #deb666;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.suggestion-content {
+  padding: 25px;
+}
+
+.suggestion-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.suggestion-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 1.5rem;
+}
+
+.suggestion-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.suggestion-price .price {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.4rem;
+  color: #deb666;
+}
+
+.view-btn {
+  background: #deb666;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.view-btn:hover {
+  background: #d4a84e;
+}
+/* Giao diện popup */
+.modal-content {
+  border-radius: 12px;
+}
+
+.modal-header {
+  background: var(--bg-cream);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 12px 12px 0 0;
+}
+.modal-header .modal-title {
+  font-size: 2rem;
+}
+.modal-footer .btn {
+  height: 38px;
+  margin: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  border: none;
+}
+
+@media (max-width: 1024px) {
+  .hero-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 250px 250px;
+  }
+
+  .gallery-item:first-child {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-card {
+    position: static;
+  }
+
+  .features-highlight {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .hero-gallery {
+    padding: 0 20px 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 200px);
+  }
+
+  .gallery-item:first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .room-info h1 {
+    font-size: 2rem;
+  }
+
+  .amenities-grid,
+  .guests-group {
+    grid-template-columns: 1fr;
+  }
+
+  .suggestions {
+    grid-template-columns: 1fr;
+  }
+}

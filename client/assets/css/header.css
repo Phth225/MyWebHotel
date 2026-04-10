@@ -1,0 +1,135 @@
+header {
+  font-family: "Roboto Slab", sans-serif;
+  background-color: #fffcf0;
+  z-index: 100;
+  position: sticky; /*Tạo hiệu ứng bám đỉnh khi cuộn xuống*/
+  top: -2px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+}
+/* logo */
+.navbar-brand {
+  margin-right: 110px;
+}
+.navbar-brand img {
+  width: 100px;
+  margin: 0 30px;
+}
+/* navbar */
+.collapse {
+  display: flex;
+  justify-content: center;
+}
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.navbar-nav li {
+  margin: 0 15px;
+}
+.nav-link span {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.8rem;
+}
+.nav-link span:hover {
+  color: #deb666;
+  font-weight: 600;
+  text-shadow: 1px 0 0 currentColor;
+}
+li .active span {
+  color: #deb666;
+}
+/* btn */
+.btn-info {
+  display: flex;
+  align-items: center;
+  background-color: #fffcf0;
+  margin: 0 40px;
+  border: 2px solid #deb666;
+}
+.btn-info span {
+  color: #deb666;
+  font-family: "Roboto Slab", sans-serif;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #deb666;
+  margin: 8px 10px 8px 0;
+}
+
+.header-btn .icon i,
+.header-btn .icon .fa,
+.header-btn .icon .fas {
+  color: #fff !important;
+  font-size: 1.4rem !important;
+  line-height: 36px !important;
+}
+/* dropdown */
+.services-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fffcf5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: none;
+  min-width: 160px;
+  z-index: 10;
+  border-radius: 5px;
+  text-align: center;
+}
+/* Tam giác chỉ lên */
+.services-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #fffcf5;
+}
+
+.services-dropdown a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+  border-bottom: 0.1px solid rgba(0, 0, 0, 0.3);
+}
+
+.services-dropdown a:hover {
+  background-color: #fffcf0;
+  color: #deb666;
+}
+
+/* Hiện dropdown khi hover */
+.nav-item.drop {
+  position: relative;
+}
+.nav-item.drop:hover .services-dropdown {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .services-dropdown {
+    display: none;
+  }
+}

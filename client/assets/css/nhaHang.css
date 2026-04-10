@@ -1,0 +1,548 @@
+/* =====main===== */
+/* hero */
+.hero {
+  background: url("https://sbmedia.com.vn/wp-content/uploads/2022/12/nhung-content-hay-ve-bbq-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 120px 20px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.3em;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+main .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #deb666;
+  position: relative;
+  font-weight: 600;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #deb666, #c9a558);
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* Service Card - Thiết kế mới sang trọng */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(222, 182, 102, 0.15);
+  border: 1px solid rgba(222, 182, 102, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0; /* Ghi đè padding cũ */
+}
+
+.service-card::before {
+  display: none; /* Ẩn hiệu ứng thanh trên cũ */
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(222, 182, 102, 0.3);
+  border-color: #deb666;
+}
+
+/* Wrapper cho hình ảnh */
+.service-image-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #deb666 0%, #c9a558 100%);
+}
+
+.service-image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-image-wrapper::after {
+  opacity: 1;
+}
+
+/* Hình ảnh dịch vụ */
+.service-card .service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0; /* Ghi đè border-radius cũ */
+  margin-bottom: 0; /* Ghi đè margin cũ */
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.08);
+}
+
+/* Nội dung card */
+.service-content {
+  padding: 28px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tiêu đề dịch vụ */
+.service-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+/* Mô tả dịch vụ */
+.service-card .service-description {
+  color: #4a5568;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  margin-top: 0; /* Ghi đè margin-top cũ */
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer của card - Chứa giá và nút */
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(222, 182, 102, 0.2);
+  gap: 15px;
+}
+
+/* Phần hiển thị giá */
+.service-price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-label {
+  font-size: 12px;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.price-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #deb666;
+  font-family: "Playfair Display", Georgia, serif;
+  line-height: 1;
+}
+
+/* Nút đặt ngay */
+.btn-book {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #deb666 0%, #c9a558 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(222, 182, 102, 0.3);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.btn-book:hover {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  transform: translateX(3px);
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+}
+
+.btn-book::after {
+  content: "→";
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.btn-book:hover::after {
+  transform: translateX(4px);
+}
+
+/* Thông báo không có dịch vụ */
+.no-services {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #718096;
+  font-size: 16px;
+}
+
+/* Ẩn service-features nếu không dùng */
+.service-features {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .service-image-wrapper {
+    height: 220px;
+  }
+
+  .service-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .service-price {
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn-book {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+  }
+
+  .service-card .service-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-content {
+    padding: 20px 18px;
+  }
+
+  .service-image-wrapper {
+    height: 200px;
+  }
+
+  .price-value {
+    font-size: 20px;
+  }
+
+  .btn-book {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+/* features */
+.features-section {
+  background: linear-gradient(135deg, #f5f0e0 0%, #fffcf0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.features-section::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(222, 182, 102, 0.15), transparent);
+  border-radius: 50%;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card {
+  background: white;
+  padding: 50px 35px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(222, 182, 102, 0.2);
+  transition: all 0.4s ease;
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(222, 182, 102, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.feature-card:hover::before {
+  left: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 25px 60px rgba(222, 182, 102, 0.35);
+  border-color: #deb666;
+}
+
+.feature-icon {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto 20px;
+  display: block;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
+  box-shadow: 0 5px 15px rgba(222, 182, 102, 0.3);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.15);
+}
+
+.feature-card h4 {
+  font-size: 1.3em;
+  color: #deb666;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: #666;
+  font-size: 1.05em;
+  line-height: 1.7;
+}
+/* menu */
+.menu-preview {
+  background: white;
+}
+
+.menu-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.menu-category {
+  background: linear-gradient(135deg, #fffcf0 0%, #f5f0e0 100%);
+  padding: 45px 40px;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(222, 182, 102, 0.2);
+  transition: all 0.4s ease;
+  border: 3px solid #f5f0e0;
+}
+
+.menu-category:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(222, 182, 102, 0.35);
+  border-color: #deb666;
+}
+
+.menu-icon {
+  font-size: 4em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.menu-category h3 {
+  font-size: 2em;
+  color: #deb666;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.menu-items {
+  list-style: none;
+}
+
+.menu-items li {
+  padding: 15px 0;
+  color: #666;
+  font-size: 1.1em;
+  position: relative;
+  padding-left: 30px;
+  border-bottom: 1px solid rgba(222, 182, 102, 0.2);
+}
+
+.menu-items li:last-child {
+  border-bottom: none;
+}
+
+.menu-items li::before {
+  content: "🍴";
+  position: absolute;
+  left: 0;
+  font-size: 1.1em;
+}
+/* cta */
+.cta-section {
+  background: linear-gradient(135deg, #deb666 0%, #c9a558 100%);
+  color: white;
+  padding: 90px 20px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.cta-section h2 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+.cta-section p {
+  font-size: 1.3em;
+  margin-bottom: 40px;
+  opacity: 0.95;
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: #deb666;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5em;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-info {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-info {
+    grid-template-columns: 1fr;
+  }
+  .menu-categories {
+    grid-template-columns: 1fr;
+  }
+}

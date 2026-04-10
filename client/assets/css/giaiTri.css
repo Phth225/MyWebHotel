@@ -1,0 +1,487 @@
+/*======== main ========  */
+/*=== hero ===*/
+.hero {
+  background: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 100px 20px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.hero p {
+  font-size: 1.3em;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+/* === services === */
+main .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #deb666, #c9a558);
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* Service Card - Thiết kế mới sang trọng */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(222, 182, 102, 0.15);
+  border: 1px solid rgba(222, 182, 102, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0; /* Ghi đè padding cũ */
+}
+
+.service-card::before {
+  display: none; /* Ẩn hiệu ứng thanh trên cũ */
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(222, 182, 102, 0.3);
+  border-color: #deb666;
+}
+
+/* Wrapper cho hình ảnh */
+.service-image-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #deb666 0%, #c9a558 100%);
+}
+
+.service-image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-image-wrapper::after {
+  opacity: 1;
+}
+
+/* Hình ảnh dịch vụ */
+.service-card .service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0; /* Ghi đè border-radius cũ */
+  margin-bottom: 0; /* Ghi đè margin cũ */
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.08);
+}
+
+/* Nội dung card */
+.service-content {
+  padding: 28px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tiêu đề dịch vụ */
+.service-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+/* Mô tả dịch vụ */
+.service-card .service-description {
+  color: #4a5568;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  margin-top: 0; /* Ghi đè margin-top cũ */
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer của card - Chứa giá và nút */
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(222, 182, 102, 0.2);
+  gap: 15px;
+}
+
+/* Phần hiển thị giá */
+.service-price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-label {
+  font-size: 12px;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.price-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #deb666;
+  font-family: "Playfair Display", Georgia, serif;
+  line-height: 1;
+}
+
+/* Nút đặt ngay */
+.btn-book {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #deb666 0%, #c9a558 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(222, 182, 102, 0.3);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.btn-book:hover {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  transform: translateX(3px);
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+}
+
+.btn-book::after {
+  content: "→";
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.btn-book:hover::after {
+  transform: translateX(4px);
+}
+
+/* Thông báo không có dịch vụ */
+.no-services {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #718096;
+  font-size: 16px;
+}
+
+/* Ẩn service-features nếu không dùng */
+.service-features {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .service-image-wrapper {
+    height: 220px;
+  }
+
+  .service-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .service-price {
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn-book {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+  }
+
+  .service-card .service-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-content {
+    padding: 20px 18px;
+  }
+
+  .service-image-wrapper {
+    height: 200px;
+  }
+
+  .price-value {
+    font-size: 20px;
+  }
+
+  .btn-book {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+/*=== cta ===*/
+.cta-section {
+  padding: 80px 20px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.cta-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+/* === house active === */
+.hours-section {
+  background: #f5f0e0;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hours-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.hours-item {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(222, 182, 102, 0.15);
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 200px;
+}
+
+.hours-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(222, 182, 102, 0.25);
+}
+
+.hours-item h4 {
+  color: #deb666;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.hours-item p {
+  color: #666;
+  font-size: 1.1em;
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5em;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ========footer======= */
+.footer {
+  background-color: #eee;
+  color: #555;
+  padding: 40px 20px;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 220px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #000000;
+  display: inline-block;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ffcc00;
+}
+
+.payments i {
+  font-size: 24px;
+  margin-right: 8px;
+  transition: color 0.3s ease;
+}
+
+.payments i:hover {
+  color: #ffcc00;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffcc00;
+}
+
+#language-select {
+  margin-left: 15px;
+  padding: 5px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .payments {
+    justify-content: center;
+  }
+}

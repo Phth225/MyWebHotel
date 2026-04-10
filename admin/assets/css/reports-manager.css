@@ -1,0 +1,262 @@
+/* Giao diện sáng (mặc định) */
+.main-content {
+  margin-left: 0px;
+  padding: 30px;
+  background: #f8f9fa;
+  min-height: 100vh;
+  width: 100%;
+}
+.filter-group {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+.filter-group .row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.filter-btn {
+  height: 44px;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter-btn:hover {
+  background: #f8f9fa;
+}
+.filter-btn.active {
+  background: #deb666;
+  color: #fff;
+  border-color: #deb666;
+}
+.date-range-picker {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.date-range-picker input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.chart-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+.chart-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chart-actions {
+  display: flex;
+  gap: 8px;
+}
+.chart-btn {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.chart-btn:hover {
+  background: #f8f9fa;
+}
+.chart-btn.active {
+  background: #deb666;
+  color: #fff;
+  border-color: #deb666;
+}
+.chart-container {
+  position: relative;
+  height: 350px;
+}
+.chart-container.small {
+  height: 300px;
+}
+.data-table {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.data-table table {
+  width: 100%;
+  margin: 0;
+}
+.data-table thead {
+  background: #fafafa;
+}
+.data-table th {
+  padding: 15px;
+  font-weight: 600;
+  color: #666;
+  font-size: 14px;
+  border-bottom: 2px solid #e0e0e0;
+}
+.data-table td {
+  padding: 15px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+.data-table tbody tr:hover {
+  background: #f8f9fa;
+}
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.comparison-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+.comparison-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 10px 0;
+}
+.comparison-label {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+}
+.comparison-chart {
+  height: 60px;
+  margin-top: 10px;
+}
+.btn-export {
+  background: #deb666;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.btn-export:hover {
+  background: #c5a878;
+}
+.summary-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+.summary-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+.summary-item {
+  text-align: center;
+}
+.summary-item-value {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.summary-item-label {
+  font-size: 13px;
+  opacity: 0.9;
+}
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Giao diện tối */
+body.dark .main-content {
+  background-color: #121212;
+  color: #fff;
+}
+body.dark .filter-group,
+body.dark .chart-card,
+body.dark .data-table,
+body.dark .comparison-card {
+  background-color: #1e1e2f;
+  color: #fffcf0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+body.dark .filter-btn,
+body.dark .chart-btn {
+  background-color: #1e1e2f;
+  color: #fffcf0;
+  border: 1px solid #3a3e5c;
+}
+body.dark .filter-btn.active,
+body.dark .chart-btn.active {
+  background-color: #deb666;
+  color: #000;
+  border-color: #deb666;
+}
+body.dark .btn-export {
+  background-color: #deb666;
+  color: #000;
+}
+body.dark input[type="date"] {
+  background-color: #2a2d4a;
+  border: 1px solid #3a3e5c;
+  color: #fffcf0;
+}
+body.dark .chart-title i {
+  color: #deb666;
+}
+body.dark .chart-header h3 {
+  color: #fff;
+}
+body.dark .data-table th {
+  background-color: #2a2d4a;
+  color: #ccc;
+}
+body.dark .data-table td {
+  border-color: #333;
+  color: #eee;
+}
+body.dark .data-table tbody tr:hover {
+  background: #2f324d;
+}

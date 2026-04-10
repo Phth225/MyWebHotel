@@ -1,0 +1,298 @@
+:root {
+  --font-family: "Be Vietnam Pro", sans-serif;
+  --bg-light: #f8f5f0; /* Màu nền trắng ngà ấm */
+  --bg-dark-card: #1c1c1c; /* Màu thẻ tối */
+  --text-dark: #3a322f; /* Màu chữ chính */
+  --text-light: #f0f0f0;
+  --text-muted: #6d6d6d;
+  --border-radius-main: 24px; /* Bo góc chính */
+  --border-radius-small: 16px; /* Bo góc phụ */
+  --section-padding: 50px 0;
+}
+section .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-bottom: 60px;
+}
+
+.btn .arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .arrow {
+  transform: translateX(5px);
+}
+/* --- HERO SECTION --- */
+.hero-section {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url(../images/0dde0a35ed32dc089d037a0fbcf49ba3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.floating-header {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 12px 40px;
+  border-radius: 50px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.header-links {
+  display: flex;
+  gap: 35px;
+}
+
+.header-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.header-links a:hover {
+  color: #deb666;
+}
+
+/* --- ABOUT US SECTION --- */
+.about-section {
+  padding: var(--section-padding);
+  background-color: #fffcf0;
+}
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+.about-text {
+  flex: 1;
+}
+.about-text h2 {
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.about-image {
+  height: 400px;
+  width: 400px;
+  border-radius: var(--border-radius-main);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  /* QUAN TRỌNG: Thay ảnh nền tại đây */
+  background-image: url(../images/37bb98a641d183d190fc27c3e2b5dc22.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* --- DETAILED SERVICES SECTION --- */
+.detailed-services-section {
+  padding: var(--section-padding);
+  background-color: #fff; /* Nền trắng tinh khôi tạo cảm giác sạch sẽ, cao cấp */
+}
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Khoảng cách lớn giữa các dịch vụ */
+}
+
+.service-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  border: 1px solid #deb666;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+/* Bố cục xen kẽ: các dịch vụ chẵn (2, 4, ...) sẽ đảo ngược vị trí ảnh và chữ */
+.service-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.service-image {
+  flex: 1 1 45%; /* Ảnh chiếm 45% chiều rộng */
+  height: 280px;
+  border-radius: var(--border-radius-main);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  overflow: hidden; /* Giữ hiệu ứng zoom bên trong khung */
+}
+
+.service-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.service-details {
+  flex: 1 1 55%; /* Nội dung chữ chiếm 55% */
+}
+
+.service-details h3 {
+  font-size: 2rem; /* 32px */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.service-description {
+  color: var(--text-muted);
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+.service-meta {
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.service-price {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #b69845;
+  margin-bottom: 30px;
+}
+
+.btn-service {
+  display: inline-block;
+  background-color: #deb666;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-service:hover {
+  background-color: #c9a558;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(222, 182, 102, 0.4);
+}
+
+/* --- Responsive cho phần dịch vụ chi tiết --- */
+@media (max-width: 992px) {
+  .service-item,
+  .service-item:nth-child(even) {
+    flex-direction: column; /* Chuyển sang layout dọc */
+    gap: 30px;
+    text-align: center;
+  }
+
+  .service-image {
+    width: 100%;
+    height: 300px; /* Giảm chiều cao ảnh trên mobile */
+  }
+
+  .service-details {
+    width: 100%;
+  }
+}
+/* --- THE JOURNEY SECTION --- */
+.journey-section {
+  padding: var(--section-padding);
+  background-color: #fffcf0;
+  text-align: center;
+}
+.journey-subtitle {
+  max-width: 700px;
+  margin: -40px auto 60px;
+  color: var(--text-muted);
+}
+.journey-steps {
+  display: flex;
+  gap: 40px;
+  text-align: center;
+}
+.step {
+  flex: 1;
+}
+.step-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+.step h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.step p {
+  color: var(--text-muted);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-image {
+    width: 100%;
+  }
+  .packages-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 80px 0;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .floating-header {
+    width: 90%;
+    padding: 10px 15px;
+  }
+  .header-links {
+    gap: 0;
+    justify-content: space-around;
+    font-size: 0.8rem;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 250px);
+  }
+  .service-card.packages {
+    grid-row: auto;
+    grid-column: auto;
+    height: 250px;
+  }
+  .service-card.massage {
+    grid-column: auto;
+  }
+  .journey-steps {
+    flex-direction: column;
+  }
+}

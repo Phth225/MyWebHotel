@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+/* khôi phục lại cỡ chữ mặc định theo rem */
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+}
+/* ========Common========== */
+a {
+  color: #5f5b53;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto Slab", sans-serif;
+}
+p,
+span {
+  font-family: "Roboto", sans-serif;
+}
+.main-content {
+  width: 1170px;
+  min-width: calc(100% - 48px);
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn {
+  display: inline-block;
+  padding: 0 16px;
+  line-height: 50px;
+  min-width: 118px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: #deb666;
+}
+.btn.left {
+  left: 10px;
+}
+
+.btn.right {
+  right: 10px;
+}
+.btn:hover {
+  opacity: 0.9;
+  background-color: #b69854;
+  color: #fff;
+}
+.view-all {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.view-all:hover {
+  color: #b69854;
+}

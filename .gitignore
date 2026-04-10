@@ -1,0 +1,124 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Composer
+/vendor/
+composer.lock
+composer.phar
+
+# IDE - PhpStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - NetBeans
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# IDE - Eclipse
+.project
+.classpath
+.settings/
+.buildpath
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+*.log.*
+php_error_log
+error_log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+
+# Upload directories (nếu còn sử dụng local upload)
+# admin/assets/images/uploads/
+# client/assets/images/uploads/
+
+# Database dumps (nếu có)
+*.sql
+*.sql.gz
+*.sql.bz2
+database_backup/
+
+# Configuration files với sensitive data
+config.php
+database.php
+cloudinary_config.php
+
+# Node modules (nếu có sử dụng npm)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build files
+build/
+dist/
+
+# Backup files
+*.bak
+*.backup
+*.old
+*_backup.*
+*_old.*
+
+# PHP specific
+*.php~
+*.php.bak
+php.ini
+
+# XAMPP specific
+xampp/
+htdocs/backup/
+
+# Cloudinary (nếu có file config local)
+cloudinary_config.php
+cloudinary_config.php.example
+
+# Debug files
+debug.php
+test.php
+test_*.php
+*_test.php
+
+# Cache
+cache/
+tmp/
+temp/
+
+# Session files
+sessions/
+
+# Uploads (nếu có thư mục upload local)
+uploads/
+files/
+
+
+

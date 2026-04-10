@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Sửa đường dẫn: đảm bảo chữ hoa/thường khớp với thư mục thực tế */
+  background: url(/My-Web-Hotel/client/assets/images/pexels-monkeytactics-751268.jpg)
+    no-repeat center center/cover;
+  padding: 20px;
+}
+
+.login-box {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  /* Xóa height cố định, để nội dung tự động điều chỉnh */
+  min-height: 400px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.login-box h2 {
+  color: #fff;
+  margin-top: 17px;
+  margin-bottom: 30px;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+/* Styling cho các bước */
+.step {
+  animation: fadeIn 0.3s ease-in;
+}
+.step p {
+  color: white !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box > i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ddd;
+  font-size: 16px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 12px 12px 45px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.input-box input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.input-box input::placeholder {
+  color: #ddd;
+}
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+}
+
+.toggle-password:hover {
+  color: #deb666;
+}
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: #deb666 !important;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all 0.3s;
+}
+
+.btn:hover:not(:disabled) {
+  background: #c9a456;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(222, 182, 102, 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #6c757d;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #5a6268;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.options a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.options a:hover {
+  color: #deb666;
+}
+
+/* Alert messages */
+.alert {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.alert-info {
+  background: rgba(13, 202, 240, 0.15);
+  border: 1px solid rgba(13, 202, 240, 0.3);
+  color: #9fe9ff;
+}
+
+.alert-success {
+  background: rgba(25, 135, 84, 0.15);
+  border: 1px solid rgba(25, 135, 84, 0.3);
+  color: #a3e6c5;
+}
+
+.alert-danger {
+  background: rgba(220, 53, 69, 0.15);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #f5b7bd;
+}
+
+/* Countdown timer */
+.countdown-timer {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #deb666;
+  padding: 10px 20px;
+  background: rgba(255, 252, 240, 0.9);
+  border-radius: 8px;
+  display: inline-block;
+  min-width: 80px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-timer span {
+  font-family: "Courier New", monospace;
+}
+
+.text-muted {
+  color: #ccc;
+}
+
+.text-primary {
+  color: #9fe9ff;
+}
+
+.text-danger {
+  color: #f5b7bd;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+  }
+
+  .countdown-timer {
+    font-size: 1.2rem;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* Loading animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}

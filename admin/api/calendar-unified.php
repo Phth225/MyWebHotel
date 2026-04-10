@@ -1,0 +1,212 @@
+<?php
+session_start();
+require_once __DIR__ . '/../includes/connect.php';
+
+// Kiểm tra đăng nhập
+if (!isset($_SESSION['id_nhan_vien'])) {
+    http_response_code(401);
+    die(json_encode(['error' => 'Unauthorized']));
+}
+
+header('Content-Type: application/json');
+
+// Lấy tham số start và end từ request
+$start = isset($_GET['start']) ? $_GET['start'] : date('Y-m-01');
+$end = isset($_GET['end']) ? $_GET['end'] : date('Y-m-t');
+
+try {
+    $events = [];
+    
+    // ========== LẤY ROOM BOOKINGS ==========
+    $stmt = $mysqli->prepare("
+        SELECT 
+            b.booking_id,
+            b.check_in_date,
+            b.check_out_date,
+            b.status,
+            COALESCE(c.full_name, w.full_name) as customer_name,
+            COALESCE(c.phone, w.phone) as customer_phone,
+            r.room_number,
+            rt.room_type_name,
+            rt.base_price,
+            CASE WHEN b.walk_in_guest_id IS NOT NULL THEN 'Walk-in' ELSE 'Registered' END as guest_type
+        FROM booking b
+        LEFT JOIN customer c ON b.customer_id = c.customer_id
+        LEFT JOIN walk_in_guest w ON b.walk_in_guest_id = w.id
+        LEFT JOIN room r ON b.room_id = r.room_id
+        LEFT JOIN room_type rt ON r.room_type_id = rt.room_type_id
+        WHERE b.deleted IS NULL
+        AND (
+            (b.check_in_date <= ? AND b.check_out_date >= ?) OR
+            (b.check_in_date >= ? AND b.check_in_date <= ?) OR
+            (b.check_out_date >= ? AND b.check_out_date <= ?)
+        )
+        ORDER BY b.check_in_date ASC
+    ");
+    
+    $stmt->bind_param("ssssss", $end, $start, $start, $end, $start, $end);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    while ($row = $result->fetch_assoc()) {
+        // Xác định màu sắc dựa trên trạng thái
+        $color = '#deb666'; // Màu mặc định (vàng)
+        $textColor = '#000';
+        
+        switch ($row['status']) {
+            case 'Confirmed':
+                $color = '#4caf50'; // Xanh lá
+                $textColor = '#fff';
+                break;
+            case 'Checked-in':
+            case 'Occupied':
+                $color = '#2196f3'; // Xanh dương
+                $textColor = '#fff';
+                break;
+            case 'Pending':
+                $color = '#ff9800'; // Cam
+                $textColor = '#fff';
+                break;
+            case 'Cancelled':
+                $color = '#f44336'; // Đỏ
+                $textColor = '#fff';
+                break;
+            case 'Completed':
+                $color = '#9e9e9e'; // Xám
+                $textColor = '#fff';
+                break;
+            default:
+                $color = '#deb666'; // Vàng (màu chủ đạo)
+                $textColor = '#000';
+        }
+        
+        // Tính số đêm
+        $checkIn = new DateTime($row['check_in_date']);
+        $checkOut = new DateTime($row['check_out_date']);
+        $nights = $checkIn->diff($checkOut)->days;
+        
+        $events[] = [
+            'id' => 'room_' . $row['booking_id'],
+            'title' => $row['room_number'] . ' - ' . $row['customer_name'],
+            'start' => $row['check_in_date'],
+            'end' => date('Y-m-d', strtotime($row['check_out_date'] . ' +1 day')),
+            'backgroundColor' => $color,
+            'borderColor' => $color,
+            'textColor' => $textColor,
+            'extendedProps' => [
+                'type' => 'room',
+                'booking_id' => $row['booking_id'],
+                'customer_name' => $row['customer_name'],
+                'customer_phone' => $row['customer_phone'],
+                'room_number' => $row['room_number'],
+                'room_type' => $row['room_type_name'],
+                'status' => $row['status'],
+                'guest_type' => $row['guest_type'],
+                'base_price' => $row['base_price'],
+                'nights' => $nights,
+                'check_in' => $row['check_in_date'],
+                'check_out' => $row['check_out_date']
+            ]
+        ];
+    }
+    
+    $stmt->close();
+    
+    // ========== LẤY SERVICE BOOKINGS (CHỈ LOẠI "SỰ KIỆN") ==========
+    $stmt = $mysqli->prepare("
+        SELECT 
+            bs.booking_service_id,
+            bs.usage_date,
+            bs.usage_time,
+            bs.status,
+            bs.quantity,
+            bs.unit_price,
+            s.service_name,
+            s.service_type,
+            COALESCE(c.full_name, w.full_name, w2.full_name) as customer_name,
+            COALESCE(c.phone, w.phone, w2.phone) as customer_phone,
+            COALESCE(c.email, w.email, w2.email) as customer_email,
+            CASE WHEN bs.walk_in_guest_id IS NOT NULL OR b.walk_in_guest_id IS NOT NULL THEN 'Walk-in' ELSE 'Registered' END as guest_type,
+            b.booking_id,
+            r.room_number
+        FROM booking_service bs
+        INNER JOIN service s ON bs.service_id = s.service_id
+        LEFT JOIN customer c ON bs.customer_id = c.customer_id AND bs.customer_id IS NOT NULL
+        LEFT JOIN booking b ON bs.booking_id = b.booking_id AND b.deleted IS NULL
+        LEFT JOIN walk_in_guest w ON b.walk_in_guest_id = w.id
+        LEFT JOIN walk_in_guest w2 ON bs.walk_in_guest_id = w2.id
+        LEFT JOIN room r ON b.room_id = r.room_id
+        WHERE bs.deleted IS NULL
+        AND s.service_type = 'Sự kiện'
+        AND (
+            bs.usage_date >= ? AND bs.usage_date <= ?
+        )
+        ORDER BY bs.usage_date ASC, bs.usage_time ASC
+    ");
+    
+    $stmt->bind_param("ss", $start, $end);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    while ($row = $result->fetch_assoc()) {
+        // Màu cho sự kiện (khác với room booking)
+        $color = '#9c27b0'; // Tím
+        $textColor = '#fff';
+        
+        switch ($row['status']) {
+            case 'Confirmed':
+            case 'Completed':
+                $color = '#9c27b0'; // Tím
+                $textColor = '#fff';
+                break;
+            case 'Pending':
+                $color = '#e91e63'; // Hồng
+                $textColor = '#fff';
+                break;
+            case 'Cancelled':
+                $color = '#f44336'; // Đỏ
+                $textColor = '#fff';
+                break;
+            default:
+                $color = '#9c27b0'; // Tím
+                $textColor = '#fff';
+        }
+        
+        $events[] = [
+            'id' => 'service_' . $row['booking_service_id'],
+            'title' => $row['service_name'] . ' - ' . $row['customer_name'],
+            'start' => $row['usage_date'] . 'T' . $row['usage_time'],
+            'end' => $row['usage_date'] . 'T' . date('H:i', strtotime($row['usage_time'] . ' +2 hours')), // Mặc định 2 giờ
+            'backgroundColor' => $color,
+            'borderColor' => $color,
+            'textColor' => $textColor,
+            'extendedProps' => [
+                'type' => 'service',
+                'booking_service_id' => $row['booking_service_id'],
+                'service_name' => $row['service_name'],
+                'service_type' => $row['service_type'],
+                'customer_name' => $row['customer_name'],
+                'customer_phone' => $row['customer_phone'],
+                'customer_email' => $row['customer_email'],
+                'status' => $row['status'],
+                'guest_type' => $row['guest_type'],
+                'quantity' => $row['quantity'],
+                'unit_price' => $row['unit_price'],
+                'usage_date' => $row['usage_date'],
+                'usage_time' => $row['usage_time'],
+                'booking_id' => $row['booking_id'],
+                'room_number' => $row['room_number']
+            ]
+        ];
+    }
+    
+    $stmt->close();
+    
+    echo json_encode($events);
+    
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(['error' => $e->getMessage()]);
+}
+?>
+
